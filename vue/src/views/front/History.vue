@@ -70,6 +70,16 @@ export default {
     handleCurrentChange(pageNum) {
       this.loadHistory(pageNum)
     },
+    del(rowid) {
+      this.$request.delete('/checkin/delete'+ rowid).then(res => {
+        if (res.code === '200') {
+          this.$message.success('删除成功')
+          this.loadHistory(1)
+        } else {
+          this.$message.error(res.msg)
+        }
+      })
+    }
   }
 }
 </script>

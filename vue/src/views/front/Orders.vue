@@ -121,6 +121,16 @@ export default {
     comment(row) {
       this.fromVisible = true
       this.form = row
+    },
+    del(rowid) {
+      this.$request.delete('/order/delete'+ rowid).then(res => {
+        if (res.code === '200') {
+          this.$message.success('删除成功')
+          this.loadOrders(1)
+        } else {
+          this.$message.error(res.msg)
+        }
+      })
     }
   }
 }

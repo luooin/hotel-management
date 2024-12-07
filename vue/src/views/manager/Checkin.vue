@@ -111,6 +111,7 @@ export default {
     },
     handleAdd() {   // 新增数据
       this.form = {}  // 新增数据的时候清空数据
+      this.loadOrders()
       this.fromVisible = true   // 打开弹窗
     },
     handleEdit(row) {   // 编辑数据
